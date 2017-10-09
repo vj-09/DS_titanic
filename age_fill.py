@@ -12,6 +12,12 @@ for a in dataset['Age']:
         #print sum1
 mean = sum1 / count
 print mean
-for a in dataset['Age']:
-    if np.isnan(a):
-        dataset[[a]]= mean
+# for a in dataset['Age']:
+#     if np.isnan(a):
+#         dataset[[a]]= mean
+def prepare_age(row):
+    if(np.isnan(row["Age"])):
+        row["Age"] = mean
+    return row
+
+dataset = dataset.apply(lambda row: prepare_age(row), axis=1)
