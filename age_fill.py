@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 dataset = pd.read_csv('dataset/train.csv')
-print(dataset.head(n=5))
+#print(dataset.head(n=5))
 sum1,count=0,0
 for a in dataset['Age']:
     if  np.isnan(a):
@@ -21,3 +21,8 @@ def prepare_age(row):
     return row
 
 dataset = dataset.apply(lambda row: prepare_age(row), axis=1)
+dataset['Age_class']=dataset['Age']*dataset['Pclass']
+
+dataset['Family_lenth']=dataset['SibSp']+dataset['Parch']
+#print(dataset['Family_lenth'])
+dataset.to_csv('train01.csv', sep='\t')
