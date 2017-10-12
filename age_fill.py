@@ -11,7 +11,7 @@ for a in dataset['Age']:
         sum1 = sum1 +a
         #print sum1
 mean = sum1 / count
-print mean
+#print mean
 # for a in dataset['Age']:
 #     if np.isnan(a):
 #         dataset[[a]]= mean
@@ -25,4 +25,4 @@ dataset['Age_class']=dataset['Age']*dataset['Pclass']
 
 dataset['Family_lenth']=dataset['SibSp']+dataset['Parch']
 #print(dataset['Family_lenth'])
-dataset.to_csv('train01.csv', sep='\t')
+dataset.to_csv('train01.csv')
